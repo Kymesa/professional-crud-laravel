@@ -29,7 +29,7 @@ class PostCrudController extends Controller
         $filePath = $request->img->storeAs('uploads', $fileName);
         Post::create([
             'title' => $request->title,
-            'category_id' => $request->category_id,
+            'category_id' => 5,
             'price' => $request->price,
             'stock' => $request->stock,
             'image' => $filePath

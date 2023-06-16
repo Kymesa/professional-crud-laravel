@@ -61,8 +61,7 @@
                             </div>
                         </td>
                         <td class="px-6 py-4">
-                            <img width="60" height="40" src="https://cdn-icons-png.flaticon.com/512/1822/1822045.png"
-                                alt="">
+                            <img width="60" height="40" src="{{ asset($post->image) }}" alt="">
                         </td>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ $post->title }}
