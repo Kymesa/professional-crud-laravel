@@ -36,9 +36,9 @@ Route::get('/services/create', [PostCrudController::class, 'create'])->name('ser
 
 Route::post('/services/store', [PostCrudController::class, 'store'])->name('services.store');
 
-// PRUEBA DE MODELOS Y BASES DE DATOS
+// SI PRUEBA DE MODELOS Y BASES DE DATOS
 
 // Route::get('/', function () {
 //     $categories = Post::all();
 //     return $categories;
-// });
+// });  
