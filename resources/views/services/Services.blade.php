@@ -61,10 +61,8 @@
                             </div>
                         </td>
                         <td class="px-6 py-4">
-                            <img width="60" height="40"
-                                src="https://www.apple.com/newsroom/images/product/os/macos/standard/macOS_preview_Hero_06042018_big.jpg.large.jpg"
+                            <img width="60" height="40" src="https://cdn-icons-png.flaticon.com/512/1822/1822045.png"
                                 alt="">
-                            src="{{ }}"
                         </td>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ $post->title }}
