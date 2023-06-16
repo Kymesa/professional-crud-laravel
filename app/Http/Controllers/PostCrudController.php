@@ -29,11 +29,11 @@ class PostCrudController extends Controller
         $filePath = $request->img->storeAs('uploads', $fileName);
         Post::create([
             'title' => $request->title,
-            'category_id' => 5,
+            'category_id' => $request->category_id,
             'price' => $request->price,
             'stock' => $request->stock,
             'image' => $filePath
         ]);
-        return redirect()->route('services.crud');
+        return redirect()->route('services.crud')->with('status', 'creado con exito el Post');
     }
 }

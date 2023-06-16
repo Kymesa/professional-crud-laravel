@@ -31,7 +31,7 @@
 
                     <!-- Sign In Form -->
                     <div
-                        class="flex flex-col rounded-lg shadow-sm bg-white overflow-hidden dark:text-gray-100 dark:bg-gray-800">
+                        class="mx-8 flex flex-col rounded-lg shadow-sm bg-white overflow-hidden dark:text-gray-100 dark:bg-gray-800">
                         <div class="p-5 md:px-16 md:py-12 grow">
                             <form action="{{ route('login.submit') }}" class="space-y-6" method="POST">
                                 @csrf
