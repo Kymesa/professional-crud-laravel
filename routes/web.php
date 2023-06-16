@@ -35,10 +35,3 @@ Route::get('/services', [PostCrudController::class, 'index'])->name('services.cr
 Route::get('/services/create', [PostCrudController::class, 'create'])->name('services.create');
 
 Route::post('/services/store', [PostCrudController::class, 'store'])->name('services.store');
-
-// SI PRUEBA DE MODELOS Y BASES DE DATOS
-
-// Route::get('/', function () {
-//     $categories = Post::all();
-//     return $categories;
-// });  
