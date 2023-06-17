@@ -35,3 +35,7 @@ Route::get('/services', [PostCrudController::class, 'index'])->name('services.cr
 Route::get('/services/create', [PostCrudController::class, 'create'])->name('services.create');
 
 Route::post('/services/store', [PostCrudController::class, 'store'])->name('services.store');
+
+Route::get('users/{id}', [PostCrudController::class, 'show'])->name('services.show');
+
+Route::get('serivices/{id}', [PostCrudController::class, 'edit'])->name('services.edit');

@@ -95,7 +95,10 @@
                             {{ $post->stock }}
                         </td>
                         <td class="flex items-center px-6 py-4 space-x-3 my-4">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <a href="{{ route('services.show', $post->id) }}"
+                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
+                            <a href="{{ route('services.edit', $post->id) }}"
+                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                             <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
                         </td>
                     </tr>
