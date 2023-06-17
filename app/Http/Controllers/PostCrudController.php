@@ -55,7 +55,7 @@ class PostCrudController extends Controller
         // $post->price = $request->price;
         // $post->stock = $request->stock;
         // $post->image = $request->img;
-        // $post->save();
+        // $post->save()
 
         return view('services.Edit', compact('post', 'categories'));
     }
