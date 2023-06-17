@@ -99,7 +99,8 @@
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
                             <a href="{{ route('services.edit', $post->id) }}"
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                            <a href="{{ route('services.destroy', $post->id) }}"
+                                class="font-medium text-red-600 dark:text-red-500 hover:underline">Destroy</a>
                         </td>
                     </tr>
                 @endforeach

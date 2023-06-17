@@ -8,6 +8,8 @@ use App\Models\Post;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PostCrudController extends Controller
 {
@@ -23,7 +25,7 @@ class PostCrudController extends Controller
         return view('services.Create', compact('categories'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(ServicesPostsRequest $request): RedirectResponse
     {
 
         $fileName = time() . '_' . $request->img->getClientOriginalName();
@@ -46,17 +48,39 @@ class PostCrudController extends Controller
 
     public function edit(Request $request, $id)
     {
-
         $categories = Category::all();
+        $post = Post::find($id);
+        return view('services.Edit', compact('post', 'categories'));
+    }
+
+    public function update(ServicesPostsRequest $request, $id)
+    {
 
         $post = Post::find($id);
-        // $post->title = $request->title;
-        // $post->category_id = $request->category_id;
-        // $post->price = $request->price;
-        // $post->stock = $request->stock;
-        // $post->image = $request->img;
-        // $post->save()
+        $fileName = time() . '_' . $request->img->getClientOriginalName();
+        $filePath = $request->img->storeAs('uploads', $fileName);
 
-        return view('services.Edit', compact('post', 'categories'));
+        if ($request->img) {
+            Storage::disk('local')->delete($post->image);
+        }
+
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->price = $request->price;
+        $post->stock = $request->stock;
+        $post->image = $filePath;
+        $post->save();
+
+        return redirect()->route('services.crud')->with('status', 'Post editado con exito');
+    }
+
+    public function destroy($id)
+    {
+        try {
+            Post::destroy($id);
+            return redirect()->route('services.crud')->with('status', 'Post Eliminado con exito');
+        } catch (\Throwable $th) {
+            return throw $th;
+        }
     }
 }

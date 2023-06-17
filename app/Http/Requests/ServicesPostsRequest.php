@@ -44,6 +44,8 @@ class ServicesPostsRequest extends FormRequest
             'stock.numeric' => 'Stock debe ser solo numerico',
             'category_id.exists' => 'Seleccione una categoria',
             'img.required' => 'Image requeridad',
+            'img.image' => 'Debe ser una imagen',
+            'price.min' => 'Minimo '
         ];
     }
 }

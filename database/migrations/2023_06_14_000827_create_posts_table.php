@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->integer('price');
+            $table->bigInteger('price');
             $table->integer('stock');
             $table->text('image');
             $table->integer('category_id');
