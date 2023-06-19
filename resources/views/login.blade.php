@@ -1,4 +1,4 @@
-@extends('layouts.Master')
+@extends('layouts.master')
 
 @section('title', 'Login')
 @section('content')
@@ -40,7 +40,7 @@
                                     <input type="email" id="email" name="email" placeholder="Enter your email"
                                         class="w-full block border placeholder-gray-500 px-5 py-3 leading-6 rounded-lg border-gray-200 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-600 dark:focus:border-blue-500 dark:placeholder-gray-400">
                                     @error('email')
-                                        @include('layouts.FormErrorsLogin.ErrorEmail')
+                                        @include('layouts.form-error-login.error-email')
                                     @enderror
                                 </div>
                                 <div class="space-y-1">
@@ -48,7 +48,7 @@
                                     <input type="password" id="password" name="passwd" placeholder="Enter your password"
                                         class="w-full block border placeholder-gray-500 px-5 py-3 leading-6 rounded-lg border-gray-200 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-600 dark:focus:border-blue-500 dark:placeholder-gray-400">
                                     @error('passwd')
-                                        @include('layouts.FormErrorsLogin.ErrorPasswd')
+                                        @include('layouts.form-error-login.error-passwd')
                                     @enderror
                                 </div>
                                 <div>

@@ -16,13 +16,13 @@ class PostCrudController extends Controller
     public function index(): View
     {
         $posts = Post::all();
-        return view('services.Services', compact('posts'));
+        return view('services.index', compact('posts'));
     }
 
     public function create(): View
     {
         $categories = Category::all();
-        return view('services.Create', compact('categories'));
+        return view('services.create', compact('categories'));
     }
 
     public function store(ServicesPostsRequest $request): RedirectResponse
@@ -43,14 +43,14 @@ class PostCrudController extends Controller
     public function show($id): View
     {
         $post = Post::find($id);
-        return view('services.Show', compact('post'));
+        return view('services.show', compact('post'));
     }
 
     public function edit(Request $request, $id)
     {
         $categories = Category::all();
         $post = Post::find($id);
-        return view('services.Edit', compact('post', 'categories'));
+        return view('services.edit', compact('post', 'categories'));
     }
 
     public function update(ServicesPostsRequest $request, $id)

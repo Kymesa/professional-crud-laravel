@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function index(): View
     {
-        return view('Login');
+        return view('login');
     }
 
     public function handleLogin(LoginPostRequest $request)
