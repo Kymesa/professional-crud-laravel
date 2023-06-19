@@ -6,6 +6,7 @@ use App\Http\Controllers\PostCrudController;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Client\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -43,3 +44,8 @@ Route::get('serivices/{id}', [PostCrudController::class, 'edit'])->name('service
 Route::post('services/update/{id}', [PostCrudController::class, 'update'])->name('services.update');
 
 Route::get('services/destroy/{id}', [PostCrudController::class, 'destroy'])->name('services.destroy');
+
+// Route::get('/', function () {
+//     $posts = Post::all();
+//     return $posts;
+// });

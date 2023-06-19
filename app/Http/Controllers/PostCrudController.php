@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PostCrudController extends Controller
 {
+
     public function index(): View
     {
         $posts = Post::all();
