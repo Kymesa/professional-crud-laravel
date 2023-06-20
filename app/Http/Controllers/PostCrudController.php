@@ -77,11 +77,9 @@ class PostCrudController extends Controller
 
     public function destroy($id)
     {
-        try {
-            Post::destroy($id);
-            return redirect()->route('services.crud')->with('status', 'Post Eliminado con exito');
-        } catch (\Throwable $th) {
-            return throw $th;
-        }
+        $post = Post::find($id);
+        Post::destroy($id);
+        Storage::disk('local')->delete($post->image);
+        return redirect()->route('services.crud')->with('status', 'Post Eliminado con exito');
     }
 }

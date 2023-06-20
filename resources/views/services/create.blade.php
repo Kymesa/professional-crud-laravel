@@ -13,7 +13,7 @@
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
                 <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                <input name="title" type="text" id="first_name"
+                <input name="title" type="text" id="first_name" value="{{ old('title') }}"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="">
                 @error('title')
@@ -22,7 +22,7 @@
             </div>
             <div>
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
-                <select name="category_id"
+                <select name="category_id" value="{{ old('category_id') }}"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Select</option>
                     @foreach ($categories as $category)
@@ -35,7 +35,7 @@
             </div>
             <div>
                 <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                <input name="price" type="number" id="price"
+                <input name="price" type="number" id="price" value="{{ old('price') }}"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="$">
                 @error('price')
@@ -44,7 +44,7 @@
             </div>
             <div>
                 <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stock</label>
-                <input name="stock" type="" id="phone"
+                <input name="stock" type="" id="phone" value="{{ old('stock') }}"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="#">
                 @error('stock')
@@ -53,7 +53,7 @@
             </div>
             <div>
                 <label for="file_input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
-                <input
+                <input value="{{ old('img') }}"
                     class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     id="file_input" type="file" name="img">
                 @error('img')
