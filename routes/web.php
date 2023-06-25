@@ -21,37 +21,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/home', 'index')->name('home');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/price', 'price')->name('price');
+});
 
-Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::controller(LoginController::class)->name('login')->group(function () {
+    Route::get('/login', 'index')->name('');
+    Route::post('/success', 'handleLogin')->name('.submit');
+});
 
-Route::get('/price', [HomeController::class, 'price'])->name('price');
+Route::controller(PostCrudController::class)->prefix('/services')->name('services')->group(function () {
+    Route::get('/',  'index')->name('.crud');
+    Route::get('/create', 'create')->name('.create');
+    Route::post('/store', 'store')->name('.store');
+    Route::get('/show/{id}', 'show')->name('.show');
+    Route::get('/edit/{id}', 'edit')->name('.edit');
+    Route::post('/update/{id}', 'update')->name('.update');
+    Route::get('/destroy/{id}', 'destroy')->name('.destroy');
+});
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::controller(PostCrudController::class)->prefix('/services/trashed')->name('trashed')->group(function () {
+    Route::get('/', 'indexTrashed')->name('');
+    Route::get('/all', 'trashedAll')->name('.all');
+    Route::get('/destroy/{id}', 'destroyTrashed')->name('.destroy');
+    Route::get('/recover/{id}', 'recoverTrashed')->name('.recover');
+});
 
-Route::post('/success', [LoginController::class, 'handleLogin'])->name('login.submit');
 
-Route::get('/services', [PostCrudController::class, 'index'])->name('services.crud');
-
-Route::get('/services/create', [PostCrudController::class, 'create'])->name('services.create');
-
-Route::post('/services/store', [PostCrudController::class, 'store'])->name('services.store');
-
-Route::get('users/{id}', [PostCrudController::class, 'show'])->name('services.show');
-
-Route::get('serivices/{id}', [PostCrudController::class, 'edit'])->name('services.edit');
-
-Route::post('services/update/{id}', [PostCrudController::class, 'update'])->name('services.update');
-
-Route::get('services/destroy/{id}', [PostCrudController::class, 'destroy'])->name('services.destroy');
-
-Route::get('services/trashed', [PostCrudController::class, 'indexTrashed'])->name('trashed');
-
-Route::get('services/trashed/all', [PostCrudController::class, 'trashedAll'])->name('trashed.all');
-
-Route::get('/services/trashed/destroy/{id}', [PostCrudController::class, 'destroyTrashed'])->name('trashed.destroy');
-
-Route::get('/services/trashed/recover/{id}', [PostCrudController::class, 'recoverTrashed'])->name('trashed.recover');
 
 // Route::get('/', function () {
 //     $posts = Post::all();

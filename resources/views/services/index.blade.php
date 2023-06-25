@@ -103,6 +103,7 @@
 
         <nav class="my-4 flex justify-center" aria-label="Page navigation example">
             {{ $posts->links() }}
+
         </nav>
 
     </div>
