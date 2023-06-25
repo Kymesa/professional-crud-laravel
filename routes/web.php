@@ -45,6 +45,14 @@ Route::post('services/update/{id}', [PostCrudController::class, 'update'])->name
 
 Route::get('services/destroy/{id}', [PostCrudController::class, 'destroy'])->name('services.destroy');
 
+Route::get('services/trashed', [PostCrudController::class, 'indexTrashed'])->name('trashed');
+
+Route::get('services/trashed/all', [PostCrudController::class, 'trashedAll'])->name('trashed.all');
+
+Route::get('/services/trashed/destroy/{id}', [PostCrudController::class, 'destroyTrashed'])->name('trashed.destroy');
+
+Route::get('/services/trashed/recover/{id}', [PostCrudController::class, 'recoverTrashed'])->name('trashed.recover');
+
 // Route::get('/', function () {
 //     $posts = Post::all();
 //     return $posts;
