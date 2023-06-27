@@ -3,12 +3,13 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostCrudController;
+use App\Mail\EmailOrderPosts;
 use App\Models\Category;
 use App\Models\Post;
-use Illuminate\Http\Client\Request;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::controller(LoginController::class)->name('login')->group(function () {
     Route::get('/login', 'index')->name('');
-    Route::post('/success', 'handleLogin')->name('.submit');
+    Route::post('/success', 'handleLogin')->name('.submit')->middleware('test');
 });
 
 Route::controller(PostCrudController::class)->prefix('/services')->name('services')->group(function () {
@@ -51,7 +52,21 @@ Route::controller(PostCrudController::class)->prefix('/services/trashed')->name(
 
 
 
-// Route::get('/', function () {
-//     $posts = Post::all();
-//     return $posts;
-// });
+Route::get('/send-mail', function () {
+
+    $name = "Test Code";
+    $toEmail = "test@test.com";
+    $img = Post::find(2)->image;
+    Mail::send(new EmailOrderPosts($name, $toEmail, $img));
+
+    dd('OK');
+});
+
+Route::get('/session-get', function (Request $request) {
+    session()->forget('product_id');
+    return dd(session()->all());
+})->name('session.get');
+
+Route::get('/session-save', function (Request $request) {
+    return redirect()->route('session.get');
+});
